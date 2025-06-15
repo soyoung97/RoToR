@@ -2,6 +2,7 @@
 
 - Accepted to **ACL 2025 (main)**  [(arXiv link)](https://arxiv.org/abs/2502.08662)
 - This repository provides the **official implementation** of RoToR together with baselines (Orig, PINE, PCW). It supports evaluation on MMLU, KGQA (Mintaka), Lost‑in‑the‑Middle, Selective Routing, and template‑swap experiments.
+- (25.6.15) Presentation slides and posters are scheduled to be uploaded within a week!
 
 ---
 
