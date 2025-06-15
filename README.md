@@ -11,7 +11,7 @@
 1. [Quick Start](#quick-start)
 2. [Supported Models](#supported-models)
 3. [Supported Methods](#supported-methods)
-4. Datasets & Commands  
+4. [Datasets & Commands](#datasets--commands)
    - [KGQA (Mintaka)](#kgqa-mintaka)  
    - [MMLU](#mmlu)  
    - [Lost-in-the-Middle (LitM)](#lost-in-the-middle-litm)  
@@ -142,7 +142,7 @@ python -m src.run \
     --split {10|20|30} \
     --mode no_indexing \
     --subsplit {0|4|9|...}
-``
+```
 
 
 * Always pass `--mode no_indexing` to match main‑text results.
@@ -171,7 +171,7 @@ pip install transformers==4.43.1 accelerate sentencepiece einops
 
 ### Qwen1.5-Chat setup
 
-```bash
+``bash
 # Torch: 2.3 is recommended, 2.0.1 is also known-good
 pip install torch==2.3.0+cu121 --index-url https://download.pytorch.org/whl/cu121
 
@@ -209,6 +209,8 @@ RoToR/
 ├── lost-in-the-middle/       # LitM dataset & helpers (vendored)
 │   ├── setup.py              # install with `pip install -e .`
 │   └── qa_data/              # pre-processed QA splits
+│
+├── outputs/                      # path to save run output
 │
 └── src/                        # RoToR driver code
     ├── run.py                 # main experiment entry point
@@ -263,8 +265,6 @@ If you use RoToR or the accompanying code, please cite:
 ---
 
 Happy experimenting! For questions or issues, please feel free to email `soyoung.yoon@snu.ac.kr` or open an github issue.
-
-
 
 
 
