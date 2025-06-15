@@ -1,0 +1,6 @@
+{
+    "total_len": 100,
+    "acc": 0.28,
+    "logstr": "\nPred results for final: {'total_len': 100, 'acc': 0.28}, none_count: 0\n, oom_cnt: 0",
+    "oom_idx": []
+}

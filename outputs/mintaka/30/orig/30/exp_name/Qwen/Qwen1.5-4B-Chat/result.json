@@ -1,0 +1,109 @@
+[
+    {
+        "question": "which team did the super bowl xlii mvp play for?",
+        "question_entities": [
+            {
+                "name": "Q597314",
+                "mention": "Super Bowl XLII",
+                "span": {
+                    "start": 19,
+                    "end": 34
+                },
+                "description": null
+            }
+        ],
+        "answer_entities": [
+            {
+                "name": "Q190618",
+                "mention": "New York Giants",
+                "span": null,
+                "description": null
+            }
+        ],
+        "lang": "en",
+        "translations": null,
+        "meta_data": {
+            "id": "6d9544a9",
+            "complexity_type": "multihop",
+            "category": "sports"
+        },
+        "knowledges": [
+            [
+                [
+                    "Super Bowl XLII",
+                    "winner",
+                    "New York Giants"
+                ],
+                [
+                    "Super Bowl XLII",
+                    "participating team",
+                    "New York Giants"
+                ],
+                [
+                    "Super Bowl XLII",
+                    "participating team",
+                    "New England Patriots"
+                ],
+                [
+                    "Super Bowl XLII",
+                    "instance of",
+                    "Super Bowl"
+                ],
+                [
+                    "Super Bowl XLII",
+                    "sport",
+                    "American football"
+                ],
+                [
+                    "Super Bowl XLII",
+                    "point in time",
+                    "time: +2008-02-03"
+                ],
+                [
+                    "Super Bowl XLII",
+                    "country",
+                    "United States of America"
+                ],
+                [
+                    "Super Bowl XLII",
+                    "Commons category",
+                    "text: Super Bowl XLII"
+                ],
+                [
+                    "Super Bowl XLII",
+                    "followed by",
+                    "Super Bowl XLIII"
+                ],
+                [
+                    "Super Bowl XLII",
+                    "follows",
+                    "Super Bowl XLI"
+                ],
+                [
+                    "Super Bowl XLII",
+                    "location",
+                    "State Farm Stadium"
+                ]
+            ]
+        ],
+        "answers": [
+            "NYG",
+            "Giants",
+            "NY Giants",
+            "New York Giants"
+        ],
+        "prediction": "{\"Answer\": \"New York Giants\"}",
+        "confidence": [
+            0.9895563721656799,
+            0.9820632934570312,
+            0.9977554678916931,
+            0.9951010346412659,
+            0.8808897137641907,
+            0.6495670080184937,
+            0.9823096394538879,
+            0.9957172274589539,
+            0.9999747276306152
+        ],
+        "accuracy": 0.0
+    }
+]
