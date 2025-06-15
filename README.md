@@ -5,19 +5,20 @@
 
 ---
 
+
 ## 0. Table of Contents
 
-1. [Quick Start](#quick-start)
-2. [Supported Models](#supported-models)
-3. [Supported Methods](#supported-methods)
-4. [Datasets & Commands](#datasets--commands)
-   ‑ 4-1. [KGQA (Mintaka)](#kgqa-mintaka)
-   ‑ 4-2. [MMLU](#mmlu)
-   ‑ 4-3. [Lost‑in‑the‑Middle (LitM)](#lost-in-the-middle-litm)
-   ‑ [Template Swap](#variant-template-swap-experiment)
+1. [Quick Start](#quick-start)
+2. [Supported Models](#supported-models)
+3. [Supported Methods](#supported-methods)
+4. Datasets & Commands  
+   - [KGQA (Mintaka)](#kgqa-mintaka)  
+   - [MMLU](#mmlu)  
+   - [Lost-in-the-Middle (LitM)](#lost-in-the-middle-litm)  
+   - [Template Swap](#variant-template-swap-experiment)
 5. [Environment](#environment)
-6. [Directory Layout](#directory-layout)
-7. [Third‑party Components & Licences](#third-party-components--license)
+6. [Directory Layout](#directory-layout)
+7. [Third-party Components & Licences](#third-party-components--license)
 8. [Citation](#citation)
 
 ---
@@ -140,14 +141,8 @@ python -m src.run \
     --method {orig|pine|ours} \
     --split {10|20|30} \
     --mode no_indexing \
-    --subsplit {0/4/9/...}
-```
-
-
-CUDA_VISIBLE_DEVICES=1 python3 -m src.run --name name_of_exp     --data lostinthemiddle    --model_name /workspace/soyoung/hf_transformers/Llama3.1-8B-Instruct    --method ours        --split 10 --mode no_indexing --subsplit 4
-
-
-CUDA_VISIBLE_DEVICES=1 python3 -m src.run --name name_of_exp     --data lostinthemiddle    --model_name Qwen/Qwen1.5-4B-Chat   --method ours        --split 10 --mode no_indexing --subsplit 4
+    --subsplit {0|4|9|...}
+``
 
 
 * Always pass `--mode no_indexing` to match main‑text results.
@@ -162,21 +157,7 @@ CUDA_VISIBLE_DEVICES=1 python3 -m src.run --name name_of_exp     --data lostinth
 
 ## 5. Environment <a id="environment"></a>
 
-Experiments are run on a docker with base image: `pytorch/pytorch:2.2.0-cuda12.1-cudnn8-devel`.
-
-Install the **model‑specific** versions shown below.
-
-<details>
-<summary>Common Python packages</summary>
-
-```bash
-jsonlines
-xopen
-flash-attn==2.1.0
-...
-```
-
-</details>
+Experiments are run on a docker with base image: `pytorch/pytorch:2.2.0-cuda12.1-cudnn8-devel`. Install the **model‑specific** versions shown below.
 
 ### Llama‑3.1‑Instruct setup
 
@@ -285,96 +266,5 @@ Happy experimenting! For questions or issues, please feel free to email `soyoung
 
 
 
-0/4/9/14/19/24/29. (Split stands for total ndoc, and subsplit stands for gold index placement)
 
-# Setup
-
-## 3. Directory Layout
-
-```text
-AcuRank/
-├── README.md
-├── LICENSE
-└── PCW/       # Codebase for Parallel Context Windows (copied from PCW codebase)
-└── lost-in-the-middle/                          # Stores dataset files for LitM (copied from the LitM codebase)
-    └── setup.py # install module
-    └── qa_data/ # dataset for ndoc=10,20,and 30
-        └── ...
-└── src/
-    └── ordering_strategy.py # implements RoToR-lexical, monot5, freq
-    └── run.py # main entrance? path to run the whole file.
-    
-```
-
-
-- You need to do pip install -e . inside the lost-in-the-middle directory.
-- All commands are run on the /src directory. 
-
-
-
-
-# Environment
-공통:
-```
-jsonlines
-xopen
-...
-```
-For Llama-3.1-Instruct family:
-
-```
-torch==2.2.1
-datasets==2.21.0
-transformers==4.43.1
-```
-
-For Qwen1.5-Chat family:
-
-```
-torch==2.3
-datasets==2.21.0
-transformers==4.40.0
-peft==0.10.0
-```
-
-
-## 📦 Third-party components & License
-
-
-### PINE
-The codebase for RoToR is greatly influenced and modified upon code from [Eliminating Position Bias of Language Models: A Mechanistic Approach (PINE)](https://github.com/wzq016/PINE?tab=readme-ov-file)
-© 2024 Ziqi Wang et al., released under the MIT License.
-- We added  modeling_qwen2_rotor.py and  modeling_llama_rotor.py and named the original PINE model codebase to -orig (e.g., modeling_llama_orig.py), under /PINE/pine/models/[llama/qwen].
-
-### lost-in-the-middle
-This project re-uses code, data, and prompt templates from [lost-in-the-middle](https://github.com/nelson-liu/lost-in-the-middle)  
-© 2023–2024 Nelson F. Liu et al., released under the MIT License.
-
-- We vendorised the original sources under `lost-in-the-middle/`.
-- A verbatim copy of the MIT License is provided in
-  `third_party/litm/LICENSE`.
-- No functional changes were made.
-
-### parallel-context-windows (PCW)
-This project also incorporates code from [Parallel-Context-Windows](https://github.com/AI21Labs/Parallel-Context-Windows)  
-© 2024 AI21 Labs Ltd., released under the Apache License 2.0.
-
-- Vendored under `PCW/`
-- Apache license text: `PCW/LICENSE`
-Currently, we notice that experiments on PCW are not runnable due to library version mismatch issues - to be fixed.
-
-
-# Citation
-If you find our paper & code useful, please consider citing our paper:
-```
-@misc{yoon2025rotorreliableresponsesorderinvariant,
-      title={RoToR: Towards More Reliable Responses for Order-Invariant Inputs}, 
-      author={Soyoung Yoon and Dongha Ahn and Youngwon Lee and Minkyu Jung and HyungJoo Jang and Seung-won Hwang},
-      year={2025},
-      eprint={2502.08662},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2502.08662}, 
-}
-```
 
