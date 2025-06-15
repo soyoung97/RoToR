@@ -172,7 +172,7 @@ pip install transformers==4.43.1 accelerate sentencepiece einops
 
 ### Qwen1.5-Chat setup
 
-``bash
+```bash
 # Torch: 2.3 is recommended, 2.0.1 is also known-good
 pip install torch==2.3.0+cu121 --index-url https://download.pytorch.org/whl/cu121
 
@@ -266,6 +266,3 @@ If you use RoToR or the accompanying code, please cite:
 ---
 
 Happy experimenting! For questions or issues, please feel free to email `soyoung.yoon@snu.ac.kr` or open an github issue.
-
-
-
